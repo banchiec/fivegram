@@ -10,7 +10,8 @@ import {
     MenuIcon,
 } from "@heroicons/react/outline"
 import { HomeIcon } from "@heroicons/react/solid"
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+import signin from '../../pages/auth/signin';
 
 function Header() {
     const { data: session } = useSession();
@@ -48,6 +49,7 @@ function Header() {
                             type="text"
                             placeholder="Search"
                         />
+
                     </div>
                 </div>
                 <div className="flex items-center
@@ -67,15 +69,16 @@ function Header() {
                             <UserGroupIcon className="navBtn" />
                             <HeartIcon className="navBtn" />
                             <img
-                                onClick={signOut}
                                 src={session?.user.image}
                                 alt="profile picture"
                                 className="h-10 rounded-full
                                 cursor-pointer"/>
                         </>
                     ) : (
-                        <button onClick={signIn}>Sign In</button>
+                        <button onClick={signin}>Sign In</button>
                     )}
+
+
                 </div>
             </div>
         </div>

@@ -12,5 +12,5 @@ export default NextAuth({
         signIn: "/auth/signin",
         signOut: "/auth/signout",
         error: '/auth/error'
-    }
+    },
 })
